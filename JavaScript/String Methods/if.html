@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <input onkeyup="counter()" type="text" id="input" placeholder="Enter your name">
+        <br>
+        <h1 id="result"></h1>
+        <br>
+
+    </div>
+    <script>
+
+        function counter() {
+            var input = document.getElementById("input")
+
+            if (input.value.length <= 10) {
+                input.style.color = "red"
+            }
+            else if (input.value.length <= 20) {
+                input.style.color = "blue"
+            }
+            else if (input.value.length <= 30) {
+                input.style.display = "none"
+                setTimeout(reset, 2000)
+            }
+
+        }
+        function reset() {
+            var input = document.getElementById("input")
+            input.style.display = "block"
+        }
+        // if  single condition
+        // else double condition
+        // else if multiple condition
+
+
+        // var a = 20
+
+        // if (a <= 10) {
+
+        //     console.log("a is less than or equal to 10")
+        // }
+        // else if (a <= 15) {
+        //     console.log("a is greater than 10")
+        //     console.log("hello world 2")
+        // }
+        // else if (a <= 20) {
+        //     console.log("a is greater than 15")
+        //     console.log("hello world 3")
+        // }
+        // else {
+        //     console.log("a is greater than 20")
+        // }
+
+    </script>
+</body>
+
+</html>

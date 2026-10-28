@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Enter the string</label>
+    <input type="text" id="str" placeholder="Enter the string">
+    <br>
+    <label for="findindex">Find Index:</label>
+    <input type="text" id="findindex" placeholder="Find Index">
+    <br>
+    <label for="replace">Replace:</label>
+    <input type="text" id="replace" placeholder="Replace">
+    <br>
+    <label for="result">Result:</label>
+    <input type="text" id="result" placeholder="Result  ">
+    <button onclick="stringlength()">Length</button> 
+    <button onclick="findindex()">Find Index</button>
+    <button onclick="replace()">Replace</button>
+    <br><br>    
+    <script>
+          function stringlength() {
+            var st=document.getElementById("str").value;
+            document.getElementById("result").value=st.length;
+          }
+
+          function findindex(){
+            var st=document.getElementById("str").value;
+            var findVal=document.getElementById("findindex").value;
+            document.getElementById("result").value=st.indexOf(findVal);
+          }
+          function replace(){
+            var st=document.getElementById("str").value;
+            var findval=document.getElementById("findindex").value;
+            var replacevalue=document.getElementById("replace").value;
+            document.getElementById("result").value=st.replace(findval,replacevalue);
+          }
+          
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #bdy{
+            height: 400px;
+            background-size: cover;
+        }
+        #row{
+            text-align: center;
+            position: relative;
+            bottom: 70px;
+        }
+    </style>
+</head>
+
+<body >
+
+    <div id="bdy">
+          <h1 id="h1">Hello</h1>
+    </div>
+   <div id="row">
+       <input name="nikhil" id="i" type="radio">
+       <input name="nikhil" id="ii" type="radio">
+       <input name="nikhil" id="iii" type="radio">
+       
+   </div>
+
+    <script>
+        
+        red()
+        function red() {
+            document.getElementById("bdy").style.backgroundImage="url(images/img1.jpg)" 
+            document.getElementById("i").checked=true
+            
+            
+            setTimeout(green, 1000)
+        }
+        function green() {
+            document.getElementById("bdy").style.backgroundImage="url(images/img2.jpg)"
+            document.getElementById("ii").checked=true
+            setTimeout(blue, 1000)
+        }
+        function blue() {
+            document.getElementById("bdy").style.backgroundImage="url(images/im3.jpg)"
+            document.getElementById("iii").checked=true
+            setTimeout(red, 1000)
+        }
+    </script>
+</body>
+
+</html>

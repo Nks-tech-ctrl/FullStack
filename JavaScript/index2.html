@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        background-size: cover;
+        
+        display: none;
+      }
+
+      button{
+        margin: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="one">Image1</div>
+    <div id="two">Image2</div>
+    <div id="three">Image3</div>
+
+    <button onclick="show('one')">Image 1</button>
+    <button onclick="show('two')">Image 2</button>
+    <button onclick="show('three')">Image 3</button>
+
+    <script>
+      function show(id) {
+        document.getElementById("one").style.display = "none";
+        document.getElementById("two").style.display = "none";
+        document.getElementById("three").style.display = "none";
+        document.getElementById("one").style.backgroundImage ="url('images/img1.jpg')";
+        document.getElementById("two").style.backgroundImage = "url('images/img2.jpg')";
+        document.getElementById("three").style.backgroundImage ="url('images/img3.jpg')";
+        document.getElementById(id).style.display = "block";
+      }
+    </script>
+  </body>
+</html>

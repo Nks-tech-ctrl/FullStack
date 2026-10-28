@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Panel</title>
+    <style>
+        #box {
+            border: 1px solid black;
+            width: 40%;
+            margin: auto;
+            text-align: center;
+            height: 320px;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 70%;
+            margin: 10px 0px;
+            font-size: 20px;
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        button {
+            font-size: 20px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            color: red;
+            margin-top: 15px;
+        }
+
+        #title {
+            margin-top: 5px;
+        }
+
+        #image1 {
+            height: 100px;
+            display: none;
+            margin: 50px auto;
+        }
+
+        .center-img {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center-img">
+        <img id="image1" src="JavaScript/images/loading.gif" alt="Loading...">
+    </div>
+
+    <div id="box">
+        <h1>Login Panel</h1>
+        <hr>
+        <input id="txtId" type="text" placeholder="Enter Id:">
+        <br>
+        <input id="txtPassword" type="password" placeholder="Enter Password:">
+        <br>
+        <button onclick="set()">Login</button>
+        <button onclick="clearFields()">Cancel</button>
+        <h2 id="result"></h2>
+        <h3 id="title"></h3>
+    </div>
+
+    <script>
+        var count = 3;
+
+        function set() {
+            if (count <= 0) {
+                document.getElementById("image1").style.display = "block";
+                document.getElementById("box").style.display = "none";
+                document.getElementById("result").innerHTML = "Account Locked out.";
+                return;
+            }
+
+            var id = document.getElementById("txtId").value;
+            var password = document.getElementById("txtPassword").value;
+
+            if (id === "Ram") {
+                if (password === "1234") {
+                    document.getElementById("image1").style.display = "block";
+                    document.getElementById("box").style.display = "none";
+                    setTimeout(reset, 3000);
+                } else {
+                    count = count - 1;
+                    document.getElementById("result").innerHTML = "Wrong user password";
+                    updateAttempts();
+                }
+            } else {
+                count = count - 1;
+                document.getElementById("result").innerHTML = "Wrong user id";
+                updateAttempts();
+            }
+        }
+
+        function updateAttempts() {
+            if (count <= 0) {
+                document.getElementById("image1").style.display = "block";
+                document.getElementById("box").style.display = "none";
+            } else {
+                document.getElementById("title").innerHTML = "You have left turn = " + count;
+            }
+        }
+
+        function reset() {
+            window.location.href = "JavaScript/input.html";
+        }
+
+        function clearFields() {
+            document.getElementById("txtId").value = "";
+            document.getElementById("txtPassword").value = "";
+            document.getElementById("result").innerHTML = "";
+            if (count > 0) {
+                document.getElementById("title").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
