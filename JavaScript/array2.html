@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box,
+        .box2 {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box"></div>
+
+    <br> <br> <br> <br> <br> <br> <br>
+    <button onclick="red()">Red</button>
+    <button onclick=green()>Green</button>
+    <button onclick="blue()">Blue</button>
+    <script>
+        // var arr = document.getElementsByTagName("div")
+        var arr = document.getElementsByClassName("box")
+        function red() {
+            i = 0
+            while (i <= arr.length - 1) {
+                arr[i].style.backgroundColor = "red"
+                i = i + 1
+            }
+        }
+        function green() {
+            var arr = document.getElementsByClassName("box2")
+            i = 0
+            while (i <= arr.length - 1) {
+                arr[i].style.backgroundColor = "green"
+                i = i + 1
+            }
+        }
+
+        function blue() {
+            i = 0
+            while (i <= arr.length - 1) {
+                arr[i].style.backgroundColor = "blue"
+                i = i + 1
+            }
+        }
+    </script>
+</body>
+
+</html>

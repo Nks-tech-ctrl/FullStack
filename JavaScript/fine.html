@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 300px;
+            width: 40%;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px 5px black;
+            text-align: center;
+        }
+
+        input {
+            width: 50%;
+            height: 30px;
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        h1 {
+            margin: 5px 0px;
+            text-align: center;
+
+        }
+
+        h2 {
+            text-align: center;
+            color: red;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h1>Fine Calculator</h1>
+        <hr>
+        <label for="">Days</label>
+        <input type="text" id="txtDays">
+        <br>
+        <button onclick="set()">Find</button>
+        <h2 id="result"></h2>
+    </div>
+    <script>
+        var fine = 0
+        function set() {
+
+            var days = parseInt(document.getElementById("txtDays").value)
+            if (days <= 5) {
+                fine = days * .5
+            }
+            else if (days <= 10) {
+                // 6-10
+                days = days - 5
+                fine = (days * 1) + 2.5
+            }
+            else {
+                days = days - 10
+                fine = (days * 5) + 7.5
+            }
+            document.getElementById("result").innerHTML = "Fine is: " + fine
+        }
+    </script>
+</body>
+
+</html>

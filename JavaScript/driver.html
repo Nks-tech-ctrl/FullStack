@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver-insurance</title>
+</head>
+
+<body>
+    <label for="">Gender</label>
+    <select id="gender">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+    </select>
+    <br><br>
+    <label for=""> Age:</label>
+    <input type="number" name="" id="age">
+    <br><br>
+    <label for="">Martial Status </label>
+    <select name="" id="martial_status">
+        <option value="0">Married</option>
+        <option value="1">Unmarried</option>
+    </select>
+    <br><br>
+    <button onclick="checkInsurance()">Check</button>
+    <h1 id="result"></h1>
+    <script>
+        function checkInsurance() {
+            var Gender = parseInt(document.getElementById("gender").value)
+            var Age = parseInt(document.getElementById("age").value)
+            var Martial_status = parseInt(document.getElementById("martial_status").value)
+
+            if (Martial_status == 0) {
+                document.getElementById("result").innerHTML = "Driver is Insured"
+            } else if (Martial_status == 1 && Gender == 0 && Age >= 30) {
+                document.getElementById("result").innerHTML = "Driver is insured"
+            } else if (Martial_status == 1 && Gender == 1 && Age >= 25) {
+                document.getElementById("result").innerHTML = "driver is insured"
+            } else {
+                document.getElementById("result").innerHTML = "Driver is not Insured"
+            }
+        }
+    </script>
+</body>
+
+</html>

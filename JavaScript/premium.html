@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Premium</title>
+</head>
+
+<body>
+
+    <form id="insurance">
+        <label for="health">Health condition:</label>
+        <select id="health" required>
+            <option value="excellent">Excellent</option>
+            <option value="poor">Poor</option>
+        </select>
+        <br><br>
+
+        <label for="age">Age (in years):</label>
+        <input type="number" id="age" min="1" max="120"
+            placeholder="Enter age" required>
+        <br><br>
+
+        <label for="location">Location:</label>
+        <select id="location" required>
+            <option value="c">City</option>
+            <option value="v">Village</option>
+        </select>
+        <br><br>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" required>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select>
+        <br><br>
+
+        <button type="button" onclick="check()">Check Eligibility</button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function check() {
+            let health = document.getElementById("health").value.toLowerCase();
+            let age = Number(document.getElementById("age").value);
+            let location = document.getElementById("location").value;
+            let sex = document.getElementById("sex").value;
+            let result = document.getElementById("result");
+            if (age === 0 || age < 1 || age > 120) {
+                result.textContent = "Please enter a valid age.";
+            }
+            else if (health === "excellent" && age >= 25 && age <= 35 && location === "c" && sex === "m") {
+                result.innerHTML ="Insured<br>Premium: Rs. 4 per thousand<br>Maximum amount: Rs. 2,00,000";
+            }
+            else if ( health === "excellent" && age >= 25 && age <= 35 && location === "c" && sex === "f") {
+                result.innerHTML ="Insured<br>Premium: Rs. 3 per thousand<br>Maximum amount: Rs. 1,00,000";
+            }
+            else if (health === "poor" && age >= 25 && age <= 35 && location === "v" &&sex === "m") {
+                result.innerHTML ="Insured<br>Premium: Rs. 6 per thousand<br>Maximum amount: Rs. 10,000";
+            }
+            else {
+                result.textContent = "Person is not insured.";
+            }
+        }
+    </script>
+
+</body>
+</html>

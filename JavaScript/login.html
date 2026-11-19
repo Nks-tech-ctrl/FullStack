@@ -7,29 +7,40 @@
     <title>Login Panel</title>
     <style>
         #box {
-            border: 1px solid black;
+            
+            border: none;
+            border-radius: 10px;
             width: 40%;
             margin: auto;
             text-align: center;
-            height: 320px;
+            height: 200px;
             padding: 20px 0;
             box-sizing: border-box;
+            background-color: aqua;
         }
 
         input {
             width: 70%;
             margin: 10px 0px;
             font-size: 20px;
+            background-color: rgb(224, 219, 213);
+            border: none;
+            border-radius: 10px;
+
         }
 
         h1 {
             margin: 0px;
+            color: blue;
         }
 
         button {
             font-size: 20px;
             margin: 0 5px;
             cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         #result {
@@ -56,7 +67,7 @@
 <body>
 
     <div class="center-img">
-        <img id="image1" src="JavaScript/images/loading.gif" alt="Loading...">
+        <img id="image1" src="images/loading.gif" alt="Loading...">
     </div>
 
     <div id="box">
@@ -113,7 +124,7 @@
         }
 
         function reset() {
-            window.location.href = "JavaScript/input.html";
+            window.location.href = "input.html";
         }
 
         function clearFields() {

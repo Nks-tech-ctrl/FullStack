@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Credit</label>
+    <select name="" id="credit">
+        <option value="0">Ok</option>
+        <option value="1">Not Ok</option>
+    </select>
+    <label for="">Order</label>
+    <input type="number" name="" id="order">
+    <br><br>
+
+    <button onclick="check()">Check</button>
+    <br>
+    <h1 id="result"></h1>
+    <script>
+        function check() {
+
+            var stock = 100
+            var Credit = parseInt(document.getElementById("credit").value)
+            var order = parseInt(document.getElementById("order").value)
+
+            if (Credit == 0) {
+                if (order <= stock) {
+                    document.getElementById("result").innerHTML = "Supply has requirements"
+                } else if (order > stock) {
+                    document.getElementById("result").innerHTML = "Balance order will be shipped"
+                }
+            } else {
+                document.getElementById("result").innerHTML = "Do not supply"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #eaf2f8;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    div {
+        width: 500px;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 8 24px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        margin-top: 0;
+        text-align: center;
+        color: #12355b;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #d7dfe8;
+        margin-bottom: 22px;
+
+    }
+
+    label {
+        display: inline-block;
+        width: 160px;
+        margin: 7px 0;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input,
+    select {
+        width: 220px;
+        padding: 10px;
+        border: 1px solid #b9c4d0;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        padding: 11px;
+        border: none;
+        border-radius: 10px;
+        background: #1769aa;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0d4f85;
+    }
+
+    #result {
+        margin-top: 20px;
+        padding: 14px;
+        background: #edf7ef;
+        border-left: 4px solid #2e8b57;
+        border-radius: 5px;
+        line-height: 1.7;
+    }
+
+    #result:empty {
+        display: none;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>Electricity Bill</h1>
+        <hr>
+        <label for="">Name</label>
+        <input type="text" name="" id="name">
+        <br>
+        <br>
+        <label for="">Address</label>
+        <input type="text" name="" id="address">
+        <br>
+        <br>
+        <label for="">Connection Type</label>
+        <select name="" id="connection_type">
+            <option value="">Select </option>
+            <option value="domestic">Domestic </option>
+            <option value="commercial">Commercial </option>
+        </select>
+        <br>
+        <br>
+        <label for="">Sanctioned Load:</label>
+        <select name="" id="load">
+            <option value="">Select load</option>
+            <option value="1">1 kW</option>
+            <option value="2">2 kW</option>
+            <option value="3">3 kW</option>
+            <option value="5">5 kW</option>
+            <option value="7.5">7.5 kW</option>
+            <option value="10">10 kW</option>
+            <option value="12.5">12.5 kW</option>
+            <option value="15">15 kW</option>
+            <option value="20">20 kW</option>
+            <option value="25">25 kW</option>
+            <option value="30">30 kW</option>
+            <option value="40">40 kW</option>
+            <option value="50">50 kW</option>
+        </select>
+        <br>
+        <br>
+        <label for="">Consumer No</label>
+        <input type="text" name="" id="consumer_no">
+        <br>
+        <label for="">Previous meter reading</label>
+        <input type="text" name="" id="prev_meter_reading">
+        <br>
+        <label for="">Current meter reading</label>
+        <input type="text" name="" id="current_meter_reading">
+
+        <button onclick=bill() id="calculate">Calculate bill</button>
+        <p id="result"></p>
+    </div>
+
+
+    <script>
+        function bill() {
+
+            var type = document.getElementById("connection_type").value;
+            var load = Number(document.getElementById("load").value)
+            var previous_reading = Number(document.getElementById("prev_meter_reading").value)
+            var current_reading = Number(document.getElementById("current_meter_reading").value)
+
+            var units = current_reading - previous_reading
+            var amount = 0
+
+            if (type == "domestic") {
+                if (units <= 150) {
+                    amount = units * 2.95;
+                } else if (units <= 300) {
+                    amount = (150 * 2.95) + ((units - 150) * 5.25);
+                } else if (units <= 500) {
+                    amount = (150 * 2.95) + (150 * 5.25) + ((units - 300) * 6.45) + (load * 50)
+                } else {
+                    amount = (150 * 2.95) + (150 * 5.25) + (200 * 6.45) + ((units - 500) * 7.10) + (load * 50)
+                }
+            }
+            if (type == "commercial") {
+                if (load <= 10) {
+                    amount = (units * 6.45) + (load * 100)
+                } else if (load <= 20) {
+                    amount = (units * 6.80) + (load * 100)
+                } else {
+                    amount = (units * 6.60) + (load * 250)
+                }
+            }
+            document.getElementById("result").innerHTML = "Unit used: " + units + "<br>Total Bill:" + amount;
+        }
+
+
+    </script>
+</body>
+
+</html>

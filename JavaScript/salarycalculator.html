@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <select id="sltGender">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+    </select><br>
+    <input type="text" id="Experience"><br>
+    <select id="sltQualification">
+        <option value="0">Graduate</option>
+        <option value="1">Post-Graduate</option>
+
+    </select>
+    <br>
+    <h1 id="result"></h1>
+    <br>
+    <button onclick="check()">Check Salary</button>
+
+    <script>
+        function check() {
+            var gender = parseInt(document.getElementById("sltGender").value)
+            var experience = parseInt(document.getElementById("Experience").value)
+            var qualification = parseInt(document.getElementById("sltQualification").value)
+            // && and || or 
+            if (gender == 0 && experience >= 10 && qualification == 1) {
+                document.getElementById("result").innerHTML = "15000"
+            } else if ((gender == 0 && experience >= 10 && qualification == 0) || (gender == 0 && experience < 10 && qualification == 1)) {
+                document.getElementById("result").innerHTML = "10000"
+            }else if (gender == 0 && experience < 10 && qualification == 0) {
+                document.getElementById("result").innerHTML = "7000"
+            } else if (gender == 1 && experience >= 10 && qualification == 1) {
+                document.getElementById("result").innerHTML = "15000"
+            } else if ((gender == 1 && experience >= 10 && qualification == 0) || (gender == 1 && experience < 10 && qqualification == 1)) {
+                document.getElementById("result").innerHTML = "10000"
+            } else if (gender == 1 && experience < 10 && qualification == 0) {
+                document.getElementById("result").innerHTML = "7000"
+            }
+        }
+    </script>
+</body>
+
+</html>

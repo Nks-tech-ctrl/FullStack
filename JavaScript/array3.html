@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+</head>
+
+<body>
+
+    <h2>Student Records</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Fees</th>
+        </tr>
+
+        <tr>
+            <td>Rahul</td>
+            <td>9876543210</td>
+            <td>Rohtak</td>
+            <td>15000</td>
+        </tr>
+        <tr>
+            <td>Aman</td>
+            <td>9876543211</td>
+            <td>Delhi</td>
+            <td>18000</td>
+        </tr>
+        <tr>
+            <td>Priya</td>
+            <td>9876543212</td>
+            <td>Hisar</td>
+            <td>16000</td>
+        </tr>
+        <tr>
+            <td>Neha</td>
+            <td>9876543213</td>
+            <td>Sonipat</td>
+            <td>17000</td>
+        </tr>
+        <tr>
+            <td>Vikas</td>
+            <td>9876543214</td>
+            <td>Panipat</td>
+            <td>14000</td>
+        </tr>
+        <tr>
+            <td>Priyanshu</td>
+            <td>9876543215</td>
+            <td>Gurugram</td>
+            <td>20000</td>
+        </tr>
+        <tr>
+            <td>Anjali</td>
+            <td>9876543216</td>
+            <td>Karnal</td>
+            <td>15500</td>
+        </tr>
+        <tr>
+            <td>Rohit</td>
+            <td>9876543217</td>
+            <td>Hisar</td>
+            <td>16500</td>
+        </tr>
+        <tr>
+            <td>Pooja</td>
+            <td>9876543218</td>
+            <td>Rohtak</td>
+            <td>19000</td>
+        </tr>
+        <tr>
+            <td>Mohit</td>
+            <td>9876543219</td>
+            <td>Faridabad</td>
+            <td>17500</td>
+        </tr>
+    </table>
+
+    <script>
+        var rows = document.getElementsByTagName("tr")
+
+        i = 1
+        while (i <= rows.length - 1) {
+            var cells = rows[i].getElementsByTagName("td")
+            cells[0].style.backgroundColor = "red"
+            cells[1].style.backgroundColor = "green"
+            cells[2].style.backgroundColor = "blue"
+            cells[3].style.backgroundColor = "yellow"
+            i = i + 1
+        }
+
+
+    </script>
+
+</body>
+
+</html>

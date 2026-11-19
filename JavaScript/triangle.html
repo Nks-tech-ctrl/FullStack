@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+    <style>
+        body{
+            background-color:bisque;
+        }
+        fieldset{
+            background-color: rgb(33, 207, 207);
+            border: none;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 90%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        legend{
+            background-color: rgb(70, 184, 117);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        button {
+            display: block; 
+            margin: 15px auto 0 auto; 
+            background-color: rgba(95, 95, 141, 0.795);
+            color: white; 
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100px;
+            cursor: pointer; 
+        } button:hover {
+            background-color: rgb(145, 59, 145); 
+        }
+        
+        #result {
+            text-align: center; 
+            font-size: 24px;
+            margin-top: 15px;
+            background-color: blanchedalmond;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend style="text-align: center; ">Triangle</legend>
+        <label for="">Enter Side A:</label>
+        <input type="number" name="" id="sideA">
+        <br><br>
+        <label for="">Enter Side B:</label>
+        <input type="number" name="" id="sideB">
+        <br><br>
+        <label for="">Enter side C:</label>
+        <input type="number" name="" id="sideC">
+        <br><br>
+        <button onclick="triangle()">Submit</button>
+        <br><br>
+        <h1 id="result"></h1>
+    </fieldset>
+    <script>
+        function triangle() {
+            var Side_A = parseFloat(document.getElementById("sideA").value)
+            var Side_B = parseFloat(document.getElementById("sideB").value)
+            var Side_C = parseFloat(document.getElementById("sideC").value)
+
+            if (Side_A == Side_B && Side_B == Side_C) {
+                document.getElementById("result").innerHTML = "Equilateral Triangle"
+            } else if (Side_A == Side_B || Side_B == Side_C || Side_A == Side_C) {
+                document.getElementById("result").innerHTML = "Isosceles Triangle"
+            } else if ((Side_A * Side_A + Side_B * Side_B == Side_C * Side_C) || (Side_A * Side_A + Side_C * Side_C == Side_B * Side_B) || (Side_B * Side_B + Side_C * Side_C == Side_A * Side_A)) {
+                document.getElementById("result").innerHTML = "Right Angle Triangle"
+            } else if (Side_A != Side_B && Side_B != Side_C && Side_A != Side_C) {
+                document.getElementById("result").innerHTML = "Scalene Triangle"
+            }
+        }
+    </script>
+
+</body>
+
+</html>

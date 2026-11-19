@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        #box {
+            height: 330px;
+            width: 40%;
+            margin: auto;
+            margin-top: 5%;
+            border: 1px solid black;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 5px 5px;
+        }
+
+        ::placeholder {
+            padding: 5px;
+            color: black;
+        }
+
+        input {
+            width: 70%;
+            margin: 10px 0px;
+            padding: 5px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+
+        #tbl {
+            margin-top: 50px;
+        }
+
+        th,
+        td {
+            text-align: center;
+        }
+
+        th {
+            background-color: #c32143;
+            color: aliceblue;
+        }
+
+        span {
+            font-weight: 700;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h1>Registration Form....</h1>
+        <hr>
+        <input id="txtName" type="text" placeholder="Enter Name:">
+        <input id="txtPhone" type="text" placeholder="Enter Phone:">
+        <input id="txtAddress" type="text" placeholder="Enter Address:">
+        <br>
+        <button onclick="save()">Save</button>
+        <button>Reset</button>
+        <br>
+    </div>
+    <div class="container" id="tbl">
+        <center><span>Total Rows are=</span> <span id="ttl"></span></center>
+        <table class="table table-bordered">
+            <thead>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Operation</th>
+            </thead>
+            <tbody id="bdy">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function save() {
+            var name = document.getElementById("txtName").value.trim()
+            var phone = document.getElementById("txtPhone").value.trim()
+            var address = document.getElementById("txtAddress").value.trim()
+
+            if (name == "" || phone == "" || address == "") {
+                alert("All fields are required!")
+                return
+            }
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                alert("Name must contain only letters!")
+                return
+            }
+            if (!/^[0-9]{10}$/.test(phone)) {
+                alert("Phone must be 10 digits!")
+                return
+            }
+
+            var row = document.createElement("tr")
+            var cell1 = document.createElement("td")
+            var cell2 = document.createElement("td")
+            var cell3 = document.createElement("td")
+            var cell4 = document.createElement("td")
+            var btnDelete = document.createElement("button")
+            btnDelete.innerHTML = "Delete"
+            btnDelete.setAttribute("onclick", "del(this)")
+            var btnedit = document.createElement("button")
+            btnedit.innerHTML = "Edit"
+            btnedit.setAttribute("onclick", "edit(this)")
+            cell1.innerHTML = name
+            cell2.innerHTML = phone
+            cell3.innerHTML = address
+            cell4.append(btnDelete, btnedit)
+            row.append(cell1, cell2, cell3, cell4)
+            document.getElementById("bdy").append(row)
+            var rows = document.getElementById("bdy").getElementsByTagName("tr")
+            document.getElementById("ttl").innerHTML = rows.length
+        }
+        function edit(currentButton) {
+            var rows = currentButton.parentNode.parentNode
+            var name = rows.cells[0].innerHTML
+            document.getElementById("txtName").value = name
+            var phone = rows.cells[1].innerHTML
+            document.getElementById("txtPhone").value = phone
+            var address = rows.cells[2].innerHTML
+            document.getElementById("txtAddress").value = address
+        }
+        var selectrows=rows
+        function update() {
+            var name=document.getElementById("txtName").value
+        }
+
+        function del(currentButton) {
+            currentButton.parentNode.parentNode.remove()
+            var rows = document.getElementById("bdy").getElementsByTagName("tr")
+            document.getElementById("ttl").innerHTML = rows.length
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+•  0 - 150 units:  ₹2.95 / kWh
+• 151 - 300 units: ₹5.25 / kWh
+• 301 - 500 units: ₹6.45 / kWh (+ ₹50/kW fixed charge)
+• Above 500 units: ₹7.10 / kWh (+ ₹50/kW fixed charge)

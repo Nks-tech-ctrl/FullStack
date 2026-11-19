@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+
+    <script src="https://kit.fontawesome.com/e359247496.js"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .sidebar {
+            width: 50px;
+            flex-shrink: 0;
+            background-color: #f7f5f3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar-top,
+        .sidebar-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav_icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 19px;
+            color: #555;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+        .nav_icon:hover {
+            background-color: #e9edef;
+        }
+        .sidebar-top .nav_icon:first-child {
+            background-color: #e9edef;
+            color: black;
+        }
+        .chat-sidebar {
+            width: 400px;
+            flex-shrink: 0;
+            background-color: white;
+            padding: 20px 15px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+        .chat-head {
+            color: #00a884;
+            margin-bottom: 20px;
+        }
+        .searchbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f5f5f5;
+            padding: 12px 15px;
+            border-radius: 25px;
+        }
+        .searchbox i {
+            color: #667781;
+        }
+        .searchbox input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-size: 13px;
+        }
+        .chat-filters {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            margin-bottom: 15px;
+        }
+        .chat-filters button {
+            padding: 7px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .chat-filters button:first-child {
+            background-color: #d9fdd3;
+            border-color: #a7d7a0;
+        }
+        .chat-filters button:hover {
+            background-color: #e9edef;
+        }
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            background-color: #f7f5f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome {
+            width: 320px;
+            max-width: 90%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+        .welcome i {
+            font-size: 65px;
+            color: #00a884;
+            margin-bottom: 35px;
+        }
+
+        .welcome h2 {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            font-size: 13px;
+            color: #667781;
+            line-height: 1.5;
+        }
+
+        .welcome button {
+            margin-top: 25px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #d9fdd3;
+            color: #075e45;
+            cursor: pointer;
+        }
+
+        .welcome button:hover {
+            background-color: #c5f2bd;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="nav_icon">
+                    <i class="fa-solid fa-message"></i>
+                </div>
+                <div class="nav_icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="nav_icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+            <div class="sidebar-bottom">
+                <div class="nav_icon">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+            </div>
+        </aside>
+        <section class="chat-sidebar">
+            <div class="chat-head">
+                <h2>WhatsApp</h2>
+            </div>
+            <div class="searchbox">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="text"
+                    id="txt"
+                    placeholder="Search or start a new chat"
+                >
+            </div>
+            <div class="chat-filters">
+                <button>All</button>
+                <button>Unread</button>
+                <button>Favorites</button>
+                <button>Groups</button>
+            </div>
+            <div class="chats">
+                <!-- Chat items will be added here -->
+            </div>
+        </section>
+        <main class="main-content">
+            <div class="welcome">
+                <i class="fa-solid fa-video"></i>
+                <h2>Voice and video calling is now available</h2>
+                <p>
+                    Now you can make and join calls
+                    on WhatsApp Web.
+                </p>
+                <button>Go to Calls</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

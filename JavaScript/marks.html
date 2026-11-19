@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            display: flex; 
+            flex-direction: column;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: whitesmoke;
+            width: 280px; 
+            border: none;
+            border-radius: 10px;
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        
+        input {
+            width: 90%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            display: block; 
+            margin: 15px auto 0 auto; 
+            background-color: rgba(95, 95, 141, 0.795);
+            color: white; 
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100px;
+            cursor: pointer; 
+        }
+
+        button:hover {
+            background-color: rgb(145, 59, 145); 
+        }
+
+        legend {
+            background-color: rgba(201, 119, 218, 0.877);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        #result {
+            text-align: center; 
+            font-size: 24px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend style="text-align: center;">Result</legend>
+        
+        <label>Enter Marks Of Subject A:</label>
+        <input type="text" id="marks_A">
+        <br>
+        <label>Enter Marks Of Subject B:</label>
+        <input type="text" id="marks_B">
+        
+        <button onclick="check()">Submit</button>
+        <h1 id="result"></h1>
+    </fieldset>
+
+    <script>
+        function check() {
+            var MarksA = parseInt(document.getElementById("marks_A").value)
+            var Marks_B = parseInt(document.getElementById("marks_B").value)
+
+            if (MarksA >= 55 && Marks_B >= 45) {
+                document.getElementById("result").innerHTML = "Passed"
+            } else if (MarksA >= 45 && MarksA < 55 && Marks_B >= 55) {
+                document.getElementById("result").innerHTML = "Passed"
+            } else if (Marks_B < 45 && MarksA >= 65) {
+                document.getElementById("result").innerHTML = "Reappear in subject B"
+            } else {
+                document.getElementById("result").innerHTML = "Failed"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary</title>
+</head>
+
+<body>
+    <label for="">Gender:</label>
+    <select id="gender">
+        <option value="0">Male</option>
+        <option value="1">FeMale</option>
+    </select>
+    <br>
+    <br>
+    <label for="">Experience:</label>
+    <input type="text" name="" id="experience">
+    <br><br>
+    <label for="">Qualification:</label>
+    <select name="" id="qualification">
+        <option value="0">Graduate</option>
+        <option value="1">PostGraduate</option>
+    </select>
+    <br> <br>
+    <h1 id="result"> </h1>
+    <button onclick="check()">Check Salary</button>
+    <script>
+        function check() {
+            var Gender = parseInt(document.getElementById("gender").value)
+            var Experience = parseInt(document.getElementById("experience").value)
+            var Qualification = parseInt(document.getElementById("qualification").value)
+            //    For male employees
+            if (Gender == 0 && Experience >= 10 && Qualification == 1) {
+                document.getElementById("result").innerHTML = "15000"
+            } else if ((Gender == 0 && Experience >= 10 && Qualification == 0) || (Gender == 0 && Experience < 10 && Qualification == 1)) {
+                document.getElementById("result").innerHTML = "10000"
+            } else if (Gender == 0 && Experience < 10 && Qualification == 0) {
+                document.getElementById("result").innerHTML = "7000"
+            }//for female employees
+            else if (Gender == 1 && Experience >= 10 && Qualification == 1) {
+                document.getElementById("result").innerHTML = "12000"
+            } else if (Gender == 1 && Experience >= 10 && Qualification == 0) {
+                document.getElementById("result").innerHTML = "9000"
+            } else if (Gender == 1 && Experience < 10 && Qualification == 1) {
+                document.getElementById("result").innerHTML = "10000"
+            } else if (Gender == 1 && Experience < 10 && Qualification == 0) {
+                document.getElementById("result").innerHTML = "6000"
+            }
+        }
+    </script>
+</body>
+
+</html>

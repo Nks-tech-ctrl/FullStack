@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #f1f5f9;
+        font-family: Arial, sans-serif;
+        padding: 30px;
+    }
+    body > button {
+        background-color: #2563eb;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    body > button:hover {
+        background-color: #1d4ed8;
+    }
+    body > div {
+        background-color: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        min-width: 250px;
+        min-height: 230px;
+    }
+    body > div > div {
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    body > div img {
+        width: 25px ;
+        height: 25px ;
+        object-fit: contain;
+        cursor: pointer;
+    }
+    textarea {
+        padding: 15px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        outline: none;
+        resize: none;
+        line-height: 1.5;
+    }
+    textarea:focus {
+        background-color: #f8fafc;
+    }
+    textarea:read-only {
+        background-color: #e8f5e9 !important;
+        cursor: default;
+    }
+    body > div > button {
+        padding: 8px 18px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        margin: 5px;
+    } 
+    /* child combinator> */
+    body > div > button:nth-of-type(1) {
+        background-color: #16a34a;
+        color: white;
+    }
+    body > div > button:nth-of-type(1):hover {
+        background-color: #15803d;
+    }
+    body > div > button:nth-of-type(2) {
+        background-color: #ef4444;
+        color: white;
+    }
+    body > div > button:nth-of-type(2):hover {
+        background-color: #dc2626;
+    }
+    </style>
+</head>
+<body id="bdy">
+    <button onclick="create()">Create</button>
+    <br>
+
+    <script>
+        function create() {
+            var box = document.createElement("div")
+            box.style.width = "25%"
+            box.style.height = "200px"
+            box.style.float = "left"
+            box.style.margin = "4%"
+            box.style.border = "1px solid black"
+
+            var innerBox = document.createElement("div")
+            innerBox.style.height = "15%"
+            innerBox.style.width = "100%"
+
+            var a = parseInt(Math.random() * 256)
+            var b = parseInt(Math.random() * 256)
+            var c = parseInt(Math.random() * 256)
+
+            innerBox.style.backgroundColor = `rgb(${a},${b},${c})`
+
+            var image1 = document.createElement("img")
+            image1.src = "images/plus.jpg"
+            image1.style.width = "15%"
+            image1.style.height = "100%"
+            image1.setAttribute("onclick", "create()")
+
+            var image2 = document.createElement("img")
+            image2.src = "images/close.png"
+            image2.style.width = "15%"
+            image2.style.height = "100%"
+            image2.style.float = "right"
+            image2.setAttribute("onclick", "del(this)")
+
+            innerBox.append(image1, image2)
+
+            var textArea = document.createElement("textarea")
+            textArea.style.width = "100%"
+            textArea.style.height = "65%"
+            textArea.style.border = "none"
+            textArea.style.boxSizing = "border-box"
+            textArea.placeholder = "Write your note here"
+
+            var save = document.createElement("button")
+            save.innerText = "Save"
+
+            save.onclick = function () {
+                textArea.readOnly = true
+                textArea.style.backgroundColor = "#e8f5e9"
+                alert("Note is saved")
+            }
+            var reset = document.createElement("button")
+            reset.innerText = "Reset"
+            reset.onclick = function () {
+                textArea.value = ""
+                textArea.readOnly = false
+                textArea.style.backgroundColor = "white"
+            }
+
+            box.append(innerBox, textArea, save, reset)
+            document.getElementById("bdy").append(box)
+        }
+
+        function del(currentButton) {
+            currentButton.parentNode.parentNode.remove()
+        }
+    </script>
+</body>
+</html>

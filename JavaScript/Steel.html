@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Grading</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Steel Grading</legend>
+        <label for="">Hardness:</label>
+        <input type="number" name="" id="hardness">
+        <br><br>
+        <label for="">Carbon Content:</label>
+        <input type="number" name="" id="carbonContent">
+        <br><br>
+        <label for="">Tensile Strength:</label>
+        <input type="number" name="" id="tensile">
+        <br><br>
+        <button onclick="steelGrading()">Submit</button>
+        <h1 id="result"></h1>
+    </fieldset>
+    <script>
+        function steelGrading(){
+            var Hardness=parseFloat(document.getElementById("hardness").value)
+            var Carbon_Content=parseFloat(document.getElementById("carbonContent").value)
+            var Tensile=parseFloat(document.getElementById("tensile").value)
+
+            if (Hardness>50 && Carbon_Content<0.7 && Tensile>5600) {
+                document.getElementById("result").innerHTML="Grade 10"
+            }else if(Hardness>50 && Carbon_Content<0.7 ){
+                document.getElementById("result").innerHTML="Grade 9"
+            }else if(Carbon_Content<0.7 && Tensile>5600){
+                document.getElementById("result").innerHTML="Grade 8"
+            }else if(Hardness>50 && Tensile>5600){
+                document.getElementById("result").innerHTML="Grade 7"
+            }else if(Hardness>50 || Carbon_Content<0.7 || Tensile>5600){
+                document.getElementById("result").innerHTML="Grade 6"
+            }else {
+                document.getElementById("result").innerHTML = "Grade 5"
+            }
+        }
+    </script>
+</body>
+</html>

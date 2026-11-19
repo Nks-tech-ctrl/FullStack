@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #row {
+            display: none;
+        }
+    </style>
+</head>
+<body id="bdy">
+    <h3>Outer Div</h3>
+    <label for="">Height:</label>
+    <input type="text" id="height" placeholder="enter height of div required">
+    <br><br>
+    <label for="">Width:</label>
+    <input type="text" id="width" placeholder="enter Width of div required">
+    <br><br>
+    <label for="">Color:</label>
+    <select id="txtColor">
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+    </select>
+    <button onclick="show()">+</button>
+    <button onclick="hide()">-</button>
+    <br><br>
+    <div id="row">
+        <input id="txtData" type="text" placeholder="enter color name">
+        <button onclick="add()">Add Color</button>
+    </div>
+
+    <h3>Inner Div</h3>
+    <label for="">Inner Height:</label>
+    <input type="text" id="innerHeight" placeholder="enter inner height">
+    <br><br>
+    <label for="">Inner Width:</label>
+    <input type="text" id="innerWidth" placeholder="enter inner width">
+    <br><br>
+    <label for="">Inner Color:</label>
+    <input type="text" id="innerColor" placeholder="e.g., yellow or #fff">
+    <br><br>
+    <label for="">Inner Text:</label>
+    <input type="text" id="innerText" placeholder="enter text inside div">
+    <br><br>
+
+    <button onclick="create()">Create</button>
+    <br><br>
+
+    <script>
+        function add() {
+            var x = document.getElementById("txtData").value;
+            var option = document.createElement("option");
+            option.innerHTML = x;
+            document.getElementById("txtColor").append(option);
+        }
+
+        function show() {
+            document.getElementById("row").style.display = "block";
+        }
+
+        function hide() {
+            document.getElementById("row").style.display = "none";
+        }
+
+        function create() {
+            
+            var height = document.getElementById("height").value;
+            var width = document.getElementById("width").value;
+            var color = document.getElementById("txtColor").value;
+
+            var innerHeight = document.getElementById("innerHeight").value;
+            var innerWidth = document.getElementById("innerWidth").value;
+            var innerColor = document.getElementById("innerColor").value;
+            var innerText = document.getElementById("innerText").value;
+
+            var box = document.createElement("div");
+            box.style.height = height + "px";
+            box.style.width = width + "px";
+            box.style.border = "1px solid black";
+            box.style.backgroundColor = color;
+            box.style.display = "flex";
+            box.style.justifyContent = "center";
+            box.style.alignItems = "center";
+            box.style.marginBottom = "10px";
+            
+            var innerBox = document.createElement("div");
+            innerBox.style.height = innerHeight + "px";
+            innerBox.style.width = innerWidth + "px";
+            innerBox.style.border = "1px solid black";
+            innerBox.style.backgroundColor = innerColor;
+            innerBox.innerText = innerText;
+            innerBox.style.display = "flex";
+            innerBox.style.justifyContent = "center";
+            innerBox.style.alignItems = "center";
+
+            box.append(innerBox);
+            document.getElementById("bdy").append(box);
+        }
+    </script>
+</body>
+</html>
